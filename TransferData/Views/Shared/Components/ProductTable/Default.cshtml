@@ -1,0 +1,50 @@
+﻿@using Entities;
+@model List<Product>
+@{
+    Layout = null;
+  
+}
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+<link rel="stylesheet" href="~/css/site.css" />
+<link rel="stylesheet" href="~/css/table.css" />
+
+
+
+
+
+
+
+
+
+<div class="col h-75">
+
+
+    <section class="table__body ">
+                <table>
+            <thead >
+                        <tr>
+                            <th > Id <span class="icon-arrow">&UpArrow;</span></th>
+                            <th> Product <span class="icon-arrow">&UpArrow;</span></th>
+                            <th> Price <span class="icon-arrow">&UpArrow;</span></th>
+                            
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var product in Model)
+                    {
+                        <tr >
+                            <td > @product.ProductId </td>
+                                <td> @product.Name </td>
+                                <td> <strong> ₺@product.Price </strong></td>
+                        </tr>
+                    } 
+                    </tbody>
+                </table>
+            </section>
+        
+    
+</div>
+
+
+
+

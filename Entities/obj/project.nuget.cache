@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "j4LXJE9J+lDtGm4oqHM/cunsesCAFPBbbyUSg6B0yPzfpGA0jEC+2r2lSIWeftvm4ofyK24OSzccWwTLel6Fcg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\STJ79730\\source\\repos\\TransferData\\Entities\\Entities.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\STJ79730\\.nuget\\packages\\dapper\\2.0.123\\dapper.2.0.123.nupkg.sha512"
+  ],
+  "logs": []
+}

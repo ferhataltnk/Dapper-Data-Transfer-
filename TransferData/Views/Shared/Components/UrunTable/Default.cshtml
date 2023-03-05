@@ -1,0 +1,46 @@
+﻿@using Entities;
+@model List<Urun>
+@{
+    Layout = null;
+}
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+<link rel="stylesheet" href="~/css/site.css" />
+<link rel="stylesheet" href="~/css/table.css" />
+
+
+
+
+
+<div class="col h-75">
+
+   
+     
+        <section class="table__body">
+            <table>
+                <thead>
+                    <tr>
+                        <th> Id <span class="icon-arrow">&UpArrow;</span></th>
+                        <th> Ürün <span class="icon-arrow">&UpArrow;</span></th>
+                        <th></th>
+                      
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var urun in Model)
+                    {
+
+                        <tr>
+                        <td> @urun.UrunId </td>
+                            <td> @urun.Adi </td>
+                        <td>  @Html.ActionLink("Delete", "DeleteUrunById", "Home",new {@urunId=urun.UrunId},new { @class="btn btn-outline-danger btn-sm"})</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </section>
+  
+
+</div>
+
+
+
