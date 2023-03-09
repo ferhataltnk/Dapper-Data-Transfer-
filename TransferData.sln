@@ -3,15 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TransferData", "TransferData\TransferData.csproj", "{07133768-ACB4-4FC2-9711-BDD489D2F589}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TransferData", "TransferData\TransferData.csproj", "{07133768-ACB4-4FC2-9711-BDD489D2F589}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entities", "Entities\Entities.csproj", "{480463C0-AC1C-4CF9-A8F2-E9070E37E721}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Entities", "Entities\Entities.csproj", "{480463C0-AC1C-4CF9-A8F2-E9070E37E721}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "DataAccess\DataAccess.csproj", "{189A9E9C-180A-4E08-9818-21CCD2553F57}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccess", "DataAccess\DataAccess.csproj", "{189A9E9C-180A-4E08-9818-21CCD2553F57}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Business", "Business\Business.csproj", "{C35B2575-F6E2-461C-BE93-EBFE1F703C83}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Business", "Business\Business.csproj", "{C35B2575-F6E2-461C-BE93-EBFE1F703C83}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsolTest", "ConsolTest\ConsolTest.csproj", "{23BF63AE-3A11-433A-9C20-22DE7B3A9342}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsolTest", "ConsolTest\ConsolTest.csproj", "{23BF63AE-3A11-433A-9C20-22DE7B3A9342}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "Core\Core.csproj", "{62CA7BD6-220D-4469-B01A-A16FDBC73D05}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{23BF63AE-3A11-433A-9C20-22DE7B3A9342}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{23BF63AE-3A11-433A-9C20-22DE7B3A9342}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{23BF63AE-3A11-433A-9C20-22DE7B3A9342}.Release|Any CPU.Build.0 = Release|Any CPU
+		{62CA7BD6-220D-4469-B01A-A16FDBC73D05}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{62CA7BD6-220D-4469-B01A-A16FDBC73D05}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{62CA7BD6-220D-4469-B01A-A16FDBC73D05}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{62CA7BD6-220D-4469-B01A-A16FDBC73D05}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

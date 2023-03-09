@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\STJ79730\\source\\repos\\TransferData\\DataAccess\\DataAccess.csproj": {}
+    "C:\\Users\\STJ79730\\Desktop\\Repos\\TransferData\\DataAccess\\DataAccess.csproj": {}
   },
   "projects": {
-    "C:\\Users\\STJ79730\\source\\repos\\TransferData\\DataAccess\\DataAccess.csproj": {
+    "C:\\Users\\STJ79730\\Desktop\\Repos\\TransferData\\DataAccess\\DataAccess.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\STJ79730\\source\\repos\\TransferData\\DataAccess\\DataAccess.csproj",
+        "projectUniqueName": "C:\\Users\\STJ79730\\Desktop\\Repos\\TransferData\\DataAccess\\DataAccess.csproj",
         "projectName": "DataAccess",
-        "projectPath": "C:\\Users\\STJ79730\\source\\repos\\TransferData\\DataAccess\\DataAccess.csproj",
+        "projectPath": "C:\\Users\\STJ79730\\Desktop\\Repos\\TransferData\\DataAccess\\DataAccess.csproj",
         "packagesPath": "C:\\Users\\STJ79730\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\STJ79730\\source\\repos\\TransferData\\DataAccess\\obj\\",
+        "outputPath": "C:\\Users\\STJ79730\\Desktop\\Repos\\TransferData\\DataAccess\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\STJ79730\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -28,8 +28,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\STJ79730\\source\\repos\\TransferData\\Entities\\Entities.csproj": {
-                "projectPath": "C:\\Users\\STJ79730\\source\\repos\\TransferData\\Entities\\Entities.csproj"
+              "C:\\Users\\STJ79730\\Desktop\\Repos\\TransferData\\Entities\\Entities.csproj": {
+                "projectPath": "C:\\Users\\STJ79730\\Desktop\\Repos\\TransferData\\Entities\\Entities.csproj"
               }
             }
           }
@@ -73,14 +73,14 @@
         }
       }
     },
-    "C:\\Users\\STJ79730\\source\\repos\\TransferData\\Entities\\Entities.csproj": {
+    "C:\\Users\\STJ79730\\Desktop\\Repos\\TransferData\\Entities\\Entities.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\STJ79730\\source\\repos\\TransferData\\Entities\\Entities.csproj",
+        "projectUniqueName": "C:\\Users\\STJ79730\\Desktop\\Repos\\TransferData\\Entities\\Entities.csproj",
         "projectName": "Entities",
-        "projectPath": "C:\\Users\\STJ79730\\source\\repos\\TransferData\\Entities\\Entities.csproj",
+        "projectPath": "C:\\Users\\STJ79730\\Desktop\\Repos\\TransferData\\Entities\\Entities.csproj",
         "packagesPath": "C:\\Users\\STJ79730\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\STJ79730\\source\\repos\\TransferData\\Entities\\obj\\",
+        "outputPath": "C:\\Users\\STJ79730\\Desktop\\Repos\\TransferData\\Entities\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\STJ79730\\AppData\\Roaming\\NuGet\\NuGet.Config",

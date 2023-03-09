@@ -1,5 +1,6 @@
 ﻿using Dapper;
 using DataAccess.Abstract;
+using DataAccess.Constats;
 using Entities;
 using System;
 using System.Collections.Generic;
@@ -12,7 +13,7 @@ namespace DataAccess.Concrete
 {
     public class DpUrunDal : IUrunDal
     {
-  
+
         public List<Urun> GetUruns()
         {
             using (var connection = new SqlConnection(ConnectionStrings.urunsDbConnectionString))
@@ -29,7 +30,7 @@ namespace DataAccess.Concrete
                 connection.Close();
                 return uruns.ToList();
             }
-            
+
         }
 
 
@@ -38,9 +39,18 @@ namespace DataAccess.Concrete
         {
             using (var connection = new SqlConnection(ConnectionStrings.urunsDbConnectionString))
             {
-                connection.Open();
-                connection.Execute(Queries.q_deleteUrunsById,new {urunId = urunId});
-                connection.Close();
+                try
+                {
+                    connection.Open();
+                    connection.Execute(Queries.q_deleteUrunsById, new { urunId = urunId });
+                    connection.Close();
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
+
             }
         }
     }

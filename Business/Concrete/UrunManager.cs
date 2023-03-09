@@ -1,4 +1,6 @@
 ﻿using Business.Abstract;
+using Business.Constants;
+using Core.Utilities.Result;
 using DataAccess.Abstract;
 using Entities;
 using System;
@@ -11,22 +13,50 @@ namespace Business.Concrete
 {
     public class UrunManager : IUrunService
     {
-
-        IUrunDal urunDal;
+        private readonly IUrunDal _urunDal;
+        //IUrunDal urunDal;
 
         public UrunManager(IUrunDal urunDal)
         {
-            this.urunDal = urunDal;
+            //this.urunDal = urunDal;
+            _urunDal = urunDal;
         }
 
-        public List<Urun> GetUruns()
+        public IDataResult<List<Urun>> GetUruns()
         {
-           return urunDal.GetUruns();
+            try
+            {
+                var uruns = _urunDal.GetUruns();
+                return new DataResult<List<Urun>>(uruns, true, "urunler getirildi");
+            }
+            catch (Exception ex)
+            {
+                return new ErrorDataResult<List<Urun>>
+                {
+                    Data = null,
+                    Message = $"Ürünler getirilirken bir hata oluştu. Detay:{ex.Message} "
+                };
+            }
+
         }
 
-        public void DeleteUrunById(int urunId)
+        public IResult DeleteUrunById(int urunId)
         {
-            urunDal.DeleteUrunById(urunId);
+            try
+            {
+                //urunDal.DeleteUrunById(urunId);
+                _urunDal.DeleteUrunById(urunId);
+                return new SuccessResult(Messages.UrunDeleted);
+            }
+            catch
+            {
+                return new ErrorResult(Messages.UrunDeleteError);
+            }
+
+
         }
     }
 }
+
+// Result class
+// try catch

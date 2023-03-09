@@ -160,6 +160,16 @@
           }
         }
       },
+      "Core/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/Core.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Core.dll": {}
+        }
+      },
       "DataAccess/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
@@ -522,6 +532,11 @@
         "version.txt"
       ]
     },
+    "Core/1.0.0": {
+      "type": "project",
+      "path": "../Core/Core.csproj",
+      "msbuildProject": "../Core/Core.csproj"
+    },
     "DataAccess/1.0.0": {
       "type": "project",
       "path": "../DataAccess/DataAccess.csproj",
@@ -535,6 +550,7 @@
   },
   "projectFileDependencyGroups": {
     "net6.0": [
+      "Core >= 1.0.0",
       "DataAccess >= 1.0.0",
       "Entities >= 1.0.0"
     ]
@@ -545,11 +561,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\STJ79730\\source\\repos\\TransferData\\Business\\Business.csproj",
+      "projectUniqueName": "C:\\Users\\STJ79730\\Desktop\\Repos\\TransferData\\Business\\Business.csproj",
       "projectName": "Business",
-      "projectPath": "C:\\Users\\STJ79730\\source\\repos\\TransferData\\Business\\Business.csproj",
+      "projectPath": "C:\\Users\\STJ79730\\Desktop\\Repos\\TransferData\\Business\\Business.csproj",
       "packagesPath": "C:\\Users\\STJ79730\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\STJ79730\\source\\repos\\TransferData\\Business\\obj\\",
+      "outputPath": "C:\\Users\\STJ79730\\Desktop\\Repos\\TransferData\\Business\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\STJ79730\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -566,11 +582,14 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\STJ79730\\source\\repos\\TransferData\\DataAccess\\DataAccess.csproj": {
-              "projectPath": "C:\\Users\\STJ79730\\source\\repos\\TransferData\\DataAccess\\DataAccess.csproj"
+            "C:\\Users\\STJ79730\\Desktop\\Repos\\TransferData\\Core\\Core.csproj": {
+              "projectPath": "C:\\Users\\STJ79730\\Desktop\\Repos\\TransferData\\Core\\Core.csproj"
             },
-            "C:\\Users\\STJ79730\\source\\repos\\TransferData\\Entities\\Entities.csproj": {
-              "projectPath": "C:\\Users\\STJ79730\\source\\repos\\TransferData\\Entities\\Entities.csproj"
+            "C:\\Users\\STJ79730\\Desktop\\Repos\\TransferData\\DataAccess\\DataAccess.csproj": {
+              "projectPath": "C:\\Users\\STJ79730\\Desktop\\Repos\\TransferData\\DataAccess\\DataAccess.csproj"
+            },
+            "C:\\Users\\STJ79730\\Desktop\\Repos\\TransferData\\Entities\\Entities.csproj": {
+              "projectPath": "C:\\Users\\STJ79730\\Desktop\\Repos\\TransferData\\Entities\\Entities.csproj"
             }
           }
         }

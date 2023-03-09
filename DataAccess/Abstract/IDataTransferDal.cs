@@ -9,5 +9,7 @@ namespace DataAccess.Abstract
     public interface IDataTransferDal
     {
         public void FromDbToDbTransfer();
+        public void FromDbToDbTransferV2();
+
     }
 }

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Entities
+namespace DataAccess.Constats
 {
     public static class Queries
     {
@@ -34,5 +34,17 @@ namespace Entities
                                               ORDER BY UrunId DESC";
 
         public const string q_deleteUrunsById = @"DELETE FROM URUNS WHERE UrunId = @UrunId";
+
+
+        public const string q_createTempTableV2 = @"    CREATE TABLE #TEMP (Name varchar(30))";
+        public const string q_insertIntoUrunNamesV2 = @"INSERT INTO #TEMP ([Name]) VALUES (@name)";
+        public const string q_TempTableToUrunsTableV2 = @"INSERT INTO URUNS (Adi) 
+                                                        Select t.Name 
+                                                        FROM #TEMP t
+                                                        LEFT JOIN URUNS U
+                                                            ON t.Name = U.Adi
+                                                        WHERE U.Adi IS NULL";
+        public const string q_dropTempTableV2 = @"DROP TABLE #TEMP";
+
     }
 }

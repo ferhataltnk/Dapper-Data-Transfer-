@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Core.Utilities.Result;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,8 @@ namespace Business.Abstract
 {
     public interface IDataTransferService
     {
-        public void FromDbToDbTransfer();
+        IResult FromDbToDbTransfer();
+
+
     }
 }

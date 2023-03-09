@@ -1,4 +1,5 @@
-﻿using Entities;
+﻿using Core.Utilities.Result;
+using Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,9 +10,9 @@ namespace Business.Abstract
 {
     public interface IUrunService
     {
-        public List<Urun> GetUruns();
+        public IDataResult<List<Urun>> GetUruns();
 
-        public void DeleteUrunById(int urunId);
+        public IResult DeleteUrunById(int urunId);
 
     }
 }

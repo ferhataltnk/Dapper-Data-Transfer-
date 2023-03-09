@@ -1,4 +1,6 @@
 ﻿using Business.Abstract;
+using Business.Constants;
+using Core.Utilities.Result;
 using Dapper;
 using DataAccess.Abstract;
 using Entities;
@@ -13,16 +15,31 @@ namespace Business.Concrete
 {
     public class DataTransferManager : IDataTransferService
     {
-        IDataTransferDal dataTransferDal;
+        private readonly IDataTransferDal _dataTransferDal;
 
         public DataTransferManager(IDataTransferDal dataTransferDal)
         {
-            this.dataTransferDal = dataTransferDal;
+            _dataTransferDal = dataTransferDal;
         }
 
-        public void FromDbToDbTransfer()
+
+        //Void methodları IResult türüne dönüştürdüm.
+        public IResult FromDbToDbTransfer()
         {
-            dataTransferDal.FromDbToDbTransfer(); 
+            try
+            {
+                //  _dataTransferDal.FromDbToDbTransfer();
+                _dataTransferDal.FromDbToDbTransferV2();
+                return new SuccessResult(Messages.DataTransferSuccess);   //Constructor'a 2 parametre yolladık.
+            }
+            catch (Exception)
+            {
+
+                return new ErrorResult(Messages.DataTransferError);
+            }
+
         }
+
+
     }
 }

@@ -4,18 +4,18 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace TransferData.ViewComponents.productTable
 {
-    public class ProductTable:ViewComponent
+    public class ProductTable : ViewComponent
     {
-        IProductService productService;
+        private readonly IProductService _productService;
 
         public ProductTable(IProductService productService)
         {
-            this.productService = productService;
+            _productService = productService;
         }
 
         public IViewComponentResult Invoke()
         {
-            var productList = productService.GetProducts();
+            var productList = _productService.GetProducts().Data;
 
             return View(productList);
         }

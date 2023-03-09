@@ -1,8 +1,10 @@
 ﻿using Dapper;
 using DataAccess.Abstract;
+using DataAccess.Constats;
 using Entities;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -26,5 +28,28 @@ namespace DataAccess.Concrete
                 return products.ToList();
             }
         }
+
+
+
+
+
+        public List<string> GetProductNames()
+        {
+            using (var connection = new SqlConnection(ConnectionStrings.productsDbConnectionString))
+            {
+                connection.Open();
+                var productNames = connection.Query<string>(Queries.q_selectProductNames);
+                //foreach (var product in products)
+                //{
+                //    Console.WriteLine("Urun ismi:" + product.productName + " Urun Id:" + product.productId + " Price:" + product.Price);
+                //}
+                connection.Close();
+                return productNames.ToList();
+            }
+        }
+
+
+
+
     }
 }

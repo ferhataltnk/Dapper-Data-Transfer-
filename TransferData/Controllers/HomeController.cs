@@ -1,5 +1,6 @@
 ﻿using Business.Abstract;
 using Business.Concrete;
+using Core.Utilities.Result;
 using DataAccess.Concrete;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
@@ -10,44 +11,51 @@ namespace TransferData.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly IProductService _productService;
+        private readonly IDataTransferService _dataTransferService;
+        private readonly IUrunService _urunService;
 
-    
-        IProductService productService;
-        IDataTransferService dataTransferService;
-        IUrunService urunService;
 
         public HomeController(IProductService productService, ILogger<HomeController> logger, IUrunService urunService, IDataTransferService dataTransferService)
         {
-            this.productService = productService;
+            _productService = productService;
             _logger = logger;
-            this.urunService = urunService;
-            this.dataTransferService = dataTransferService;
+            _urunService = urunService;
+            _dataTransferService = dataTransferService;
         }
 
 
 
         public IActionResult Index()
         {
-            var products = productService.GetProducts();
-            var uruns = urunService.GetUruns();
-            return View();
+
+            var products = _productService.GetProducts();
+            _logger.LogInformation(products.Message);
+            var uruns = _urunService.GetUruns();
+            _logger.LogInformation(uruns.Message);
+
+            return View(); //araştır IActionResult
         }
 
+        #region DbToDb
 
         public IActionResult DbToDb()
         {
-            dataTransferService.FromDbToDbTransfer();
-            return RedirectToAction("Index","Home");
-        }
 
+            var result = _dataTransferService.FromDbToDbTransfer();
+
+            _logger.LogInformation(result.Message);
+
+            return RedirectToAction("Index", "Home"); //araştır
+        }
+        #endregion
 
         public IActionResult DeleteUrunById(int urunId)
         {
-            urunService.DeleteUrunById(urunId);
+            var result = _urunService.DeleteUrunById(urunId);
+            _logger.LogInformation(result.Message);
             return RedirectToAction("Index", "Home");
         }
-
-
 
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

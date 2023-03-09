@@ -1,4 +1,5 @@
 ﻿using Business.Abstract;
+using Core.Utilities.Result;
 using DataAccess.Abstract;
 using Entities;
 using System;
@@ -11,16 +12,33 @@ namespace Business.Concrete
 {
     public class ProductManager : IProductService
     {
-        IProductDal productDal;
+        private readonly IProductDal _productDal;
 
         public ProductManager(IProductDal productDal)
         {
-            this.productDal = productDal;
+            _productDal = productDal;
         }
 
-        public List<Product> GetProducts()
+        public IDataResult<List<Product>> GetProducts()
         {
-            return productDal.GetProducts();
+            try
+            {
+                var products = _productDal.GetProducts();
+                return new SuccessDataResult<List<Product>>(products, "Productlar başarıyla getirildi.");
+
+            }
+            catch (Exception ex)
+            {
+
+                return new ErrorDataResult<List<Product>>
+                {
+                    Data = null,
+                    Success = false,
+                    Message = $"Productlar getirilirken beklenmeyen bir sonuçla karşılaşıldı. Detay:{ex.Message}"
+                };
+            }
         }
+
+
     }
 }
