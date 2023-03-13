@@ -23,23 +23,23 @@ namespace Business.Concrete
         }
 
 
-        //Void methodları IResult türüne dönüştürdüm.
+        
         public IResult FromDbToDbTransfer()
         {
+            
             try
             {
-                //  _dataTransferDal.FromDbToDbTransfer();
-                _dataTransferDal.FromDbToDbTransferV2();
-                return new SuccessResult(Messages.DataTransferSuccess);   //Constructor'a 2 parametre yolladık.
+                
+              var result= _dataTransferDal.FromDbToDbTransferDataTable();
+                return new Result(success:true, message:"Transfer başarıyla tamamlandı.");  
             }
-            catch (Exception)
+            catch (Exception e)
             {
 
-                return new ErrorResult(Messages.DataTransferError);
+                return new Result(success:false, message:$"Beklenmedik bir hata oluştu. \n Detay: {e.Message}");
             }
 
         }
-
 
     }
 }

@@ -11,9 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccess", "DataAccess\Da
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Business", "Business\Business.csproj", "{C35B2575-F6E2-461C-BE93-EBFE1F703C83}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsolTest", "ConsolTest\ConsolTest.csproj", "{23BF63AE-3A11-433A-9C20-22DE7B3A9342}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "Core\Core.csproj", "{62CA7BD6-220D-4469-B01A-A16FDBC73D05}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core", "Core\Core.csproj", "{62CA7BD6-220D-4469-B01A-A16FDBC73D05}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -37,10 +35,6 @@ Global
 		{C35B2575-F6E2-461C-BE93-EBFE1F703C83}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C35B2575-F6E2-461C-BE93-EBFE1F703C83}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C35B2575-F6E2-461C-BE93-EBFE1F703C83}.Release|Any CPU.Build.0 = Release|Any CPU
-		{23BF63AE-3A11-433A-9C20-22DE7B3A9342}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{23BF63AE-3A11-433A-9C20-22DE7B3A9342}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{23BF63AE-3A11-433A-9C20-22DE7B3A9342}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{23BF63AE-3A11-433A-9C20-22DE7B3A9342}.Release|Any CPU.Build.0 = Release|Any CPU
 		{62CA7BD6-220D-4469-B01A-A16FDBC73D05}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{62CA7BD6-220D-4469-B01A-A16FDBC73D05}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{62CA7BD6-220D-4469-B01A-A16FDBC73D05}.Release|Any CPU.ActiveCfg = Release|Any CPU

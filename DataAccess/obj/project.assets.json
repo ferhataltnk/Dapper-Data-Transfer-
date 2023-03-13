@@ -160,6 +160,16 @@
           }
         }
       },
+      "Core/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/Core.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Core.dll": {}
+        }
+      },
       "Entities/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
@@ -507,6 +517,11 @@
         "version.txt"
       ]
     },
+    "Core/1.0.0": {
+      "type": "project",
+      "path": "../Core/Core.csproj",
+      "msbuildProject": "../Core/Core.csproj"
+    },
     "Entities/1.0.0": {
       "type": "project",
       "path": "../Entities/Entities.csproj",
@@ -515,6 +530,7 @@
   },
   "projectFileDependencyGroups": {
     "net6.0": [
+      "Core >= 1.0.0",
       "Dapper >= 2.0.123",
       "Entities >= 1.0.0",
       "System.Data.SqlClient >= 4.8.5"
@@ -547,6 +563,9 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
+            "C:\\Users\\STJ79730\\Desktop\\Repos\\TransferData\\Core\\Core.csproj": {
+              "projectPath": "C:\\Users\\STJ79730\\Desktop\\Repos\\TransferData\\Core\\Core.csproj"
+            },
             "C:\\Users\\STJ79730\\Desktop\\Repos\\TransferData\\Entities\\Entities.csproj": {
               "projectPath": "C:\\Users\\STJ79730\\Desktop\\Repos\\TransferData\\Entities\\Entities.csproj"
             }

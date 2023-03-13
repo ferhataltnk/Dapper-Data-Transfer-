@@ -8,60 +8,59 @@ using System.Threading.Tasks;
 using System.Data.SqlClient;
 using Dapper;
 using Entities;
+using System.Data;
+using Core.Utilities.Result;
 
 namespace DataAccess.Concrete
 {
     public class DpDataTransferDal : IDataTransferDal
     {
 
-
-        public void FromDbToDbTransfer()
+        public async Task<IResult> FromDbToDbTransferDataTable()
         {
-            using (var connection = new SqlConnection(ConnectionStrings.productsDbConnectionString))
+            try
             {
-                connection.Open();
-                connection.Execute(Queries.q_ProductsTableToTempTable);
-                connection.Execute(Queries.q_UseUrunsDb);
-                int count = connection.Execute(Queries.q_TempTableToUrunsTable);
-                connection.Execute(Queries.q_dropTempTable);
-                connection.Close();
-                Console.WriteLine(count + " ürün tabloya eklendi");
-            }
 
-        }
-
-
-        public void FromDbToDbTransferV2()
-        {
-            using (var connection = new SqlConnection(ConnectionStrings.urunsDbConnectionString))
-            {
-                DpProductDal productDal = new DpProductDal();
-                var productNames = productDal.GetProductNames().ToList();
-                connection.Open();
-                //  var productNames = connection.Query<string>(Queries.q_selectProductNames);
-                connection.Execute(Queries.q_createTempTableV2);
-
-                foreach (var item in productNames)
+                using (var connection = new SqlConnection(ConnectionStrings.urunsDbConnectionString))
                 {
-                    connection.Execute(Queries.q_insertIntoUrunNamesV2,
-                    new[]
+                    DpProductDal productDal = new DpProductDal();
+                    var productNamesDataTable = productDal.GetProductNamesDataTable().Data;
+                    
+                     await connection.OpenAsync();
+
+                    await connection.ExecuteAsync(Queries.QUERY_TEMP_CREATE_TEMP_TABLE);
+
+                 
+
+                    using (SqlBulkCopy sqlBulkCopy = new(connection))
                     {
-                        new{name=item},
+                        sqlBulkCopy.DestinationTableName = "[dbo].[#TEMP]";
+                        sqlBulkCopy.BulkCopyTimeout = 0;
+                        productNamesDataTable.Columns.Cast<DataColumn>().ToList().ForEach(p => sqlBulkCopy.ColumnMappings.Add(p.ColumnName,
+                                                                                                         destinationColumn: p.ColumnName));
+                        await sqlBulkCopy.WriteToServerAsync(productNamesDataTable);
 
-                    });
+                    }
+
+                    await connection.ExecuteAsync(Queries.QUERY_URUNS_TEMP_TO_URUN_INSERT);
+
+                    await connection.ExecuteAsync(Queries.QUERY_TEMP_DROP_TEMP_TABLE);
+
+
+                    await connection.CloseAsync();
+
+
+                    return new Result(success: true, message: "Transfer başarıyla gerçekleştirildi.");
                 }
+            }
+            catch (Exception e)
+            {
 
+                return new Result(success: true, message: $"Transfer işlemi sırasında bir hata oluştu. \n Detay: {e.Message}");
 
-                connection.Execute(Queries.q_TempTableToUrunsTableV2);
-
-                connection.Execute(Queries.q_dropTempTableV2);
-
-
-                connection.Close();
             }
 
         }
-
     }
 
 }

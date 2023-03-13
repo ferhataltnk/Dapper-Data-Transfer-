@@ -3256,6 +3256,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
+          "Core": "1.0.0",
           "Dapper": "2.0.123",
           "Entities": "1.0.0",
           "System.Data.SqlClient": "4.8.5"

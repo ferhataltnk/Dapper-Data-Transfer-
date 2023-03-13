@@ -1,5 +1,7 @@
 ﻿@using Entities;
-@model List<Product>
+@using System.Data;
+@model DataTable
+
 @{
     Layout = null;
   
@@ -30,12 +32,12 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach (var product in Model)
+                        @foreach (DataRow product in Model.Rows)
                     {
                         <tr >
-                            <td > @product.ProductId </td>
-                                <td> @product.Name </td>
-                                <td> <strong> ₺@product.Price </strong></td>
+                            <td > @product["ProductId"] </td>
+                                <td> @product["Name"] </td>
+                                <td> <strong> ₺@product["Price"] </strong></td>
                         </tr>
                     } 
                     </tbody>

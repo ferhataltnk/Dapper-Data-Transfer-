@@ -99,6 +99,7 @@
       "System.Security.Principal.Windows/4.7.0": {},
       "Business/1.0.0": {
         "dependencies": {
+          "Core": "1.0.0",
           "DataAccess": "1.0.0",
           "Entities": "1.0.0"
         },
@@ -106,8 +107,14 @@
           "Business.dll": {}
         }
       },
+      "Core/1.0.0": {
+        "runtime": {
+          "Core.dll": {}
+        }
+      },
       "DataAccess/1.0.0": {
         "dependencies": {
+          "Core": "1.0.0",
           "Dapper": "2.0.123",
           "Entities": "1.0.0",
           "System.Data.SqlClient": "4.8.5"
@@ -203,6 +210,11 @@
       "hashPath": "system.security.principal.windows.4.7.0.nupkg.sha512"
     },
     "Business/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Core/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

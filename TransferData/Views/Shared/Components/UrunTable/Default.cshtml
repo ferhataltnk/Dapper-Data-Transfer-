@@ -1,5 +1,6 @@
 ﻿@using Entities;
-@model List<Urun>
+@using System.Data;
+@model DataTable
 @{
     Layout = null;
 }
@@ -26,13 +27,13 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach (var urun in Model)
+                    @foreach (DataRow urun in Model.Rows)
                     {
 
                         <tr>
-                        <td> @urun.UrunId </td>
-                            <td> @urun.Adi </td>
-                        <td>  @Html.ActionLink("Delete", "DeleteUrunById", "Home",new {@urunId=urun.UrunId},new { @class="btn btn-outline-danger btn-sm"})</td>
+                        <td> @urun["UrunId"] </td>
+                            <td> @urun["Adi"] </td>
+                        <td>  @Html.ActionLink("Delete", "DeleteUrunById", "Home",new {@urunId=urun["UrunId"]},new { @class="btn btn-outline-danger btn-sm"})</td>
                         </tr>
                     }
                 </tbody>

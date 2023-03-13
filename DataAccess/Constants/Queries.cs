@@ -9,42 +9,48 @@ namespace DataAccess.Constats
     public static class Queries
     {
 
+        /*PRODUCTS*/
 
-        public const string q_ProductsTableToTempTable = @"SELECT Name INTO ##tmp FROM PRODUCTS";
-        public const string q_UseUrunsDb = @"USE URUNS";
-        public const string q_TempTableToUrunsTable = @"INSERT INTO URUNS (Adi) 
-                                                        Select t.Name 
-                                                        FROM ##tmp t
-                                                        LEFT JOIN URUNS U
-                                                            ON t.Name = U.Adi
-                                                        WHERE U.Adi IS NULL";
-        public const string q_dropTempTable = @"DROP TABLE ##tmp";
-        public const string q_selectProductNames = @"Select Name
-                                                 From PRODUCTS";
-        public const string q_selectUrunNames = @"Select Adi
-                                                 From URUNS";
+        public const string QUERY_PRODUCTS_USE_PRODUCTS_DB = @"use PRODUCTS";
 
-        public const string q_UseProductsDb = @"use PRODUCTS";
-
-        public const string q_selectProducts = @"Select* 
-                                                 From PRODUCTS
-                                                 ORDER BY ProductId DESC";
-        public const string q_selectUruns = @"Select* 
-                                              From URUNS
-                                              ORDER BY UrunId DESC";
-
-        public const string q_deleteUrunsById = @"DELETE FROM URUNS WHERE UrunId = @UrunId";
+        public const string QUERY_PRODUCTS_SELECT_PRODUCT_NAMES = @"Select Name
+                                                                    From PRODUCTS";
+        public const string QUERY_PRODUCTS_SELECT_PRODUCTS = @"Select* 
+                                                               From PRODUCTS
+                                                               ORDER BY ProductId DESC";
 
 
-        public const string q_createTempTableV2 = @"    CREATE TABLE #TEMP (Name varchar(30))";
-        public const string q_insertIntoUrunNamesV2 = @"INSERT INTO #TEMP ([Name]) VALUES (@name)";
-        public const string q_TempTableToUrunsTableV2 = @"INSERT INTO URUNS (Adi) 
-                                                        Select t.Name 
-                                                        FROM #TEMP t
-                                                        LEFT JOIN URUNS U
-                                                            ON t.Name = U.Adi
-                                                        WHERE U.Adi IS NULL";
-        public const string q_dropTempTableV2 = @"DROP TABLE #TEMP";
+
+
+        /*URUNS*/
+
+        public const string QUERY_URUNS_SELECT_URUNS = @"Select* 
+                                                         From URUNS
+                                                         ORDER BY UrunId DESC";
+
+        public const string QUERY_URUNS_SELECT_URUNS_NAMES = @"Select Adi
+                                                                From URUNS";
+
+        public const string QUERY_URUNS_DELETE_URUN_BY_ID = @"DELETE FROM URUNS WHERE UrunId = @UrunId";
+
+        public const string QUERY_URUNS_INSERT_INTO_URUN_NAMES = @"INSERT INTO #TEMP ([Name]) VALUES (@name)";
+
+        public const string QUERY_URUNS_TEMP_TO_URUN_INSERT = @"INSERT INTO URUNS (Adi) 
+                                                                Select t.Name 
+                                                                FROM #TEMP t
+                                                                LEFT JOIN URUNS U
+                                                                ON t.Name = U.Adi
+                                                                WHERE U.Adi IS NULL";
+
+
+
+
+        /*TEMP*/
+
+        public const string QUERY_TEMP_CREATE_TEMP_TABLE = @"    CREATE TABLE #TEMP (Name varchar(30))";
+        
+        
+        public const string QUERY_TEMP_DROP_TEMP_TABLE = @"DROP TABLE #TEMP";
 
     }
 }

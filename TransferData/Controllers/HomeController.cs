@@ -29,7 +29,7 @@ namespace TransferData.Controllers
         public IActionResult Index()
         {
 
-            var products = _productService.GetProducts();
+            var products = _productService.GetProductDataTable();
             _logger.LogInformation(products.Message);
             var uruns = _urunService.GetUruns();
             _logger.LogInformation(uruns.Message);

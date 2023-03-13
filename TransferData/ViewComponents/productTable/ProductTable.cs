@@ -15,7 +15,7 @@ namespace TransferData.ViewComponents.productTable
 
         public IViewComponentResult Invoke()
         {
-            var productList = _productService.GetProducts().Data;
+            var productList = _productService.GetProductDataTable().Data;
 
             return View(productList);
         }

@@ -1,9 +1,11 @@
-﻿using Dapper;
+﻿using Core.Utilities.Result;
+using Dapper;
 using DataAccess.Abstract;
 using DataAccess.Constats;
 using Entities;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -14,44 +16,51 @@ namespace DataAccess.Concrete
     public class DpUrunDal : IUrunDal
     {
 
-        public List<Urun> GetUruns()
+        public IDataResult<DataTable> GetUruns()
         {
-            using (var connection = new SqlConnection(ConnectionStrings.urunsDbConnectionString))
+            try
             {
-                connection.Open();
-                var uruns = connection.Query<Urun>(Queries.q_selectUruns);
-
-
-                //foreach (var urun in uruns)
-                //{
-                //    Console.WriteLine("Urun ismi:" + urun.urunName +" UrunId:" + urun.urunId);
-                //}
-
-                connection.Close();
-                return uruns.ToList();
+                using (var connection = new SqlConnection(ConnectionStrings.urunsDbConnectionString))
+                {
+                    var result = new DataResult<DataTable>(data: new DataTable(), success: true, message: "Ürünler başarılı bir şekilde listelendi.");
+                    connection.Open();
+                    IDataReader uruns = connection.ExecuteReader(Queries.QUERY_URUNS_SELECT_URUNS);
+                    result.Data.Load(uruns);
+                    connection.Close();
+                    return result;
+                }
             }
+            catch (Exception ex)
+            {
+                return new DataResult<DataTable>(data: null, success: false, message: $"Ürünler getirilirken bir hata oluştu.\n Detay: {ex.Message}");
+            }
+            
 
         }
 
 
 
-        public void DeleteUrunById(int urunId)
+        public IResult DeleteUrunById(int urunId)
         {
-            using (var connection = new SqlConnection(ConnectionStrings.urunsDbConnectionString))
+            try
             {
-                try
+                using (var connection = new SqlConnection(ConnectionStrings.urunsDbConnectionString))
                 {
+
+
                     connection.Open();
-                    connection.Execute(Queries.q_deleteUrunsById, new { urunId = urunId });
+                    connection.Execute(Queries.QUERY_URUNS_DELETE_URUN_BY_ID, new { urunId = urunId });
                     connection.Close();
-                }
-                catch (Exception)
-                {
 
-                    throw;
                 }
-
+                return new Result(true);
             }
+            catch (Exception e)
+            {
+
+                return new Result(success:false,message:$"Ürün Silinemedi.\n Detay: {e.Message}");
+            }
+          
         }
     }
 }

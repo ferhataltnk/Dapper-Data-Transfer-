@@ -5,6 +5,7 @@ using DataAccess.Abstract;
 using Entities;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,19 +23,19 @@ namespace Business.Concrete
             _urunDal = urunDal;
         }
 
-        public IDataResult<List<Urun>> GetUruns()
+        public IDataResult<DataTable> GetUruns()
         {
             try
             {
-                var uruns = _urunDal.GetUruns();
-                return new DataResult<List<Urun>>(uruns, true, "urunler getirildi");
+                var uruns = _urunDal.GetUruns().Data;
+                return new DataResult<DataTable>(uruns, true, "urunler getirildi");
             }
             catch (Exception ex)
             {
-                return new ErrorDataResult<List<Urun>>
+                return new ErrorDataResult<DataTable>
                 {
                     Data = null,
-                    Message = $"Ürünler getirilirken bir hata oluştu. Detay:{ex.Message} "
+                    Message = $"Ürünler getirilirken bir hata oluştu.\n Detay:{ex.Message} "
                 };
             }
 

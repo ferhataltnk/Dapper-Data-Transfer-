@@ -28,3 +28,5 @@ C:\Users\STJ79730\Desktop\Repos\TransferData\DataAccess\obj\Debug\net6.0\DataAcc
 C:\Users\STJ79730\Desktop\Repos\TransferData\DataAccess\obj\Debug\net6.0\refint\DataAccess.dll
 C:\Users\STJ79730\Desktop\Repos\TransferData\DataAccess\obj\Debug\net6.0\DataAccess.pdb
 C:\Users\STJ79730\Desktop\Repos\TransferData\DataAccess\obj\Debug\net6.0\ref\DataAccess.dll
+C:\Users\STJ79730\Desktop\Repos\TransferData\DataAccess\bin\Debug\net6.0\Core.dll
+C:\Users\STJ79730\Desktop\Repos\TransferData\DataAccess\bin\Debug\net6.0\Core.pdb
