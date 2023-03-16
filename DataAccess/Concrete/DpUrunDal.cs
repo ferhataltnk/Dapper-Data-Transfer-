@@ -25,6 +25,7 @@ namespace DataAccess.Concrete
                     var result = new DataResult<DataTable>(data: new DataTable(), success: true, message: "Ürünler başarılı bir şekilde listelendi.");
                     connection.Open();
                     IDataReader uruns = connection.ExecuteReader(Queries.QUERY_URUNS_SELECT_URUNS);
+                    
                     result.Data.Load(uruns);
                     connection.Close();
                     return result;

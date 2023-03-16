@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Business.Abstract
 {
-    public interface IProductService
+    public interface IProductService 
     {
        
         public IDataResult<DataTable> GetProductDataTable();

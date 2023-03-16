@@ -2,12 +2,22 @@ using Business.Abstract;
 using Business.Concrete;
 using DataAccess.Abstract;
 using DataAccess.Concrete;
+using Hangfire;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
+var hangfireConnectionString = "Server=NB317493; Database=DbCronJobHangfire; Trusted_Connection=True";
+builder.Services.AddHangfire(x =>
+{
+    x.UseSqlServerStorage(hangfireConnectionString);
+    RecurringJob.AddOrUpdate<TransferData.Controllers.HomeController>(j => j.DbToDb(), cronExpression: "*/5 * * * *");
+
+
+});
+builder.Services.AddHangfireServer();
 
 //IOC
 builder.Services.AddSingleton<IProductService, ProductManager>();
@@ -35,6 +45,9 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.UseAuthorization();
+
+app.UseHangfireDashboard(pathMatch: "/hangfire");
+
 
 app.MapControllerRoute(
     name: "default",

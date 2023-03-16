@@ -26,18 +26,16 @@ namespace DataAccess.Concrete
                     DpProductDal productDal = new DpProductDal();
                     var productNamesDataTable = productDal.GetProductNamesDataTable().Data;
                     
-                     await connection.OpenAsync();
-
+                    await connection.OpenAsync();
+             
                     await connection.ExecuteAsync(Queries.QUERY_TEMP_CREATE_TEMP_TABLE);
 
-                 
 
                     using (SqlBulkCopy sqlBulkCopy = new(connection))
                     {
                         sqlBulkCopy.DestinationTableName = "[dbo].[#TEMP]";
                         sqlBulkCopy.BulkCopyTimeout = 0;
-                        productNamesDataTable.Columns.Cast<DataColumn>().ToList().ForEach(p => sqlBulkCopy.ColumnMappings.Add(p.ColumnName,
-                                                                                                         destinationColumn: p.ColumnName));
+                        productNamesDataTable.Columns.Cast<DataColumn>().ToList().ForEach(p => sqlBulkCopy.ColumnMappings.Add(p.ColumnName, destinationColumn: p.ColumnName));
                         await sqlBulkCopy.WriteToServerAsync(productNamesDataTable);
 
                     }
@@ -45,7 +43,6 @@ namespace DataAccess.Concrete
                     await connection.ExecuteAsync(Queries.QUERY_URUNS_TEMP_TO_URUN_INSERT);
 
                     await connection.ExecuteAsync(Queries.QUERY_TEMP_DROP_TEMP_TABLE);
-
 
                     await connection.CloseAsync();
 

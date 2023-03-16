@@ -1,10 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "b+tzbbWKYyXxI6gICB+Ewl4h6XNcfxrjftnpnR89zIhFCehaqi/CcvMUvn3rhliIIdDw1xVewOb1pnLsgEsPJA==",
+  "dgSpecHash": "JxOcYsdR/a328Wm3L8t3NzzxE0GLaM2ECd1CoRYepFYwtHEdcvn0UVvqK4BM2VD/UMWsx6U09FUuKql3c9o5tA==",
   "success": true,
   "projectFilePath": "C:\\Users\\STJ79730\\Desktop\\Repos\\TransferData\\TransferData\\TransferData.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\STJ79730\\.nuget\\packages\\dapper\\2.0.123\\dapper.2.0.123.nupkg.sha512",
+    "C:\\Users\\STJ79730\\.nuget\\packages\\hangfire\\1.7.33\\hangfire.1.7.33.nupkg.sha512",
+    "C:\\Users\\STJ79730\\.nuget\\packages\\hangfire.aspnetcore\\1.7.33\\hangfire.aspnetcore.1.7.33.nupkg.sha512",
+    "C:\\Users\\STJ79730\\.nuget\\packages\\hangfire.core\\1.7.33\\hangfire.core.1.7.33.nupkg.sha512",
+    "C:\\Users\\STJ79730\\.nuget\\packages\\hangfire.sqlserver\\1.7.33\\hangfire.sqlserver.1.7.33.nupkg.sha512",
     "C:\\Users\\STJ79730\\.nuget\\packages\\humanizer.core\\2.2.0\\humanizer.core.2.2.0.nupkg.sha512",
     "C:\\Users\\STJ79730\\.nuget\\packages\\messagepack\\2.1.152\\messagepack.2.1.152.nupkg.sha512",
     "C:\\Users\\STJ79730\\.nuget\\packages\\messagepack.annotations\\2.1.152\\messagepack.annotations.2.1.152.nupkg.sha512",
